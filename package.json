@@ -119,6 +119,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/amqplib": "^0.10.6",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.1",
     "nodemon": "^3.1.9",
