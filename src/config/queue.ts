@@ -8,18 +8,16 @@ const rabbitMQUrl = process.env.RABBITMQ_URL || 'amqp://localhost';
 
 export const sendToQueue = async (message: any) => {
   try {
-    const connection = await amqp.connect(rabbitMQUrl);
+    const connection = await amqp.connect('amqp://localhost:5672');
     const channel = await connection.createChannel();
     await channel.assertQueue(queueName, { durable: false });
-
     channel.sendToQueue(queueName, Buffer.from(JSON.stringify(message)));
-    console.log(`✅ Mensagem enviada: ${JSON.stringify(message)}`);
-
+    console.log(`Message sent to queue: ${JSON.stringify(message)}`);
     setTimeout(() => {
       connection.close();
     }, 500);
   } catch (error) {
-    console.error('❌ Erro ao enviar mensagem:', error);
+    console.error('Failed to connect to RabbitMQ:', error);
   }
 };
 

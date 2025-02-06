@@ -1,6 +1,6 @@
 import express from 'express';
 import connectDB from './config/db';
-import { CarConsumer } from './consumers/carConsumer';
+import { CarConsumer } from './consumers/CarConsumer';
 
 import { carRoutes } from './routes/carRoutes';
 import { logRoutes } from './routes/logRoutes';
