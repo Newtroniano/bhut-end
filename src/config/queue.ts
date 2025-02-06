@@ -1,16 +1,26 @@
 import amqp from 'amqplib';
 
 const queueName = 'car_queue';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const rabbitMQUrl = process.env.RABBITMQ_URL || 'amqp://localhost';
 
 export const sendToQueue = async (message: any) => {
-  const connection = await amqp.connect('amqp://localhost');
-  const channel = await connection.createChannel();
-  await channel.assertQueue(queueName, { durable: false });
-  channel.sendToQueue(queueName, Buffer.from(JSON.stringify(message)));
-  console.log(`Message sent to queue: ${JSON.stringify(message)}`);
-  setTimeout(() => {
-    connection.close();
-  }, 500);
+  try {
+    const connection = await amqp.connect(rabbitMQUrl);
+    const channel = await connection.createChannel();
+    await channel.assertQueue(queueName, { durable: false });
+
+    channel.sendToQueue(queueName, Buffer.from(JSON.stringify(message)));
+    console.log(`✅ Mensagem enviada: ${JSON.stringify(message)}`);
+
+    setTimeout(() => {
+      connection.close();
+    }, 500);
+  } catch (error) {
+    console.error('❌ Erro ao enviar mensagem:', error);
+  }
 };
 
 export const consumeFromQueue = async () => {
