@@ -8,9 +8,15 @@ export class CarController {
     this.carService = new CarService();
   }
 
+  
   async getCars(req: Request, res: Response) {
-    const cars = await this.carService.getCars();
-    res.json(cars);
+    try {
+      const cars = await this.carService.getCars(); 
+      res.json(cars);
+    } catch (error: any) {
+      console.error("Erro ao buscar carros:", error.message);
+      res.status(500).json({ error: "Erro interno ao buscar carros" });
+    }
   }
 
   async createCar(req: Request, res: Response) {
