@@ -8,7 +8,7 @@ const queueName = 'car_queue';
 export class CarConsumer {
   async start() {
 
-    const connection = await amqp.connect('amqp://localhost');
+    const connection = await amqp.connect(process.env.RABBITMQ_URL || 'amqp://rabbitmq');
     const channel = await connection.createChannel();
     await channel.assertQueue(queueName, { durable: false });
 
