@@ -22,7 +22,7 @@ export const sendToQueue = async (message: any) => {
 };
 
 export const consumeFromQueue = async () => {
-  const connection = await amqp.connect('amqp://localhost');
+  const connection = await amqp.connect(process.env.RABBITMQ_URL || 'amqp://localhost:5672');
   const channel = await connection.createChannel();
   await channel.assertQueue(queueName, { durable: false });
 

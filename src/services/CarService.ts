@@ -7,8 +7,10 @@ export class CarService {
   private apiUrl = 'http://api-test.bhut.com.br:3000/api/v1/carro';
 
   async getCars() {
+    console.log("response")
     const response = await axios.get(this.apiUrl);
-    return response.data;
+    
+    return response;
   }
 
   async createCar(carData: any) {
