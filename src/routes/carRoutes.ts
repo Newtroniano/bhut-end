@@ -3,8 +3,9 @@ import { CarController } from '../controllers/carController';
 
 const router = express.Router();
 const carController = new CarController();
+import { authMiddleware } from '../Middlewares/authMiddleware';
 
-router.get('/', carController.getCars);
+router.get('/', authMiddleware, carController.getCars);
 router.post('/', carController.createCar);
 
 
