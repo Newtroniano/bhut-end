@@ -23,11 +23,11 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     
     req.headers.authorization = `${token}`;
 
-    console.log('Token obtido e adicionado ao header:', token);
+    //console.log('Token obtido e adicionado ao header:', token);
 
     next(); 
   } catch (error) {
-    console.error("Erro no login:", error);
+    //console.error("Erro no login:", error);
     res.status(401).json({ error: "Falha ao autenticar. Verifique as credenciais." });
   }
 };
