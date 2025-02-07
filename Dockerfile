@@ -1,20 +1,24 @@
-# Usa uma imagem oficial do Node.js
-FROM node:18
+# Usa a imagem oficial do Node.js 16 como base
+FROM node:16
 
 # Define o diretório de trabalho dentro do container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copia os arquivos do projeto para dentro do container
+# Copia os arquivos de dependências (package.json e package-lock.json)
 COPY package*.json ./
 
 # Instala as dependências
-RUN npm install
+RUN npm install -g typescript
 
-# Copia todos os arquivos do projeto
+# Copia o restante do código para o container
 COPY . .
 
-# Define a porta que será exposta
-EXPOSE 3000
+# Compila o código TypeScript
+RUN npm run build
 
-# Comando padrão para rodar a aplicação
-CMD ["npm", "run", "dev"]
+# Expõe a porta 3000 (a porta que sua aplicação Node.js usa)
+EXPOSE 3000
+EXPOSE 9229
+
+# Comando para rodar a aplicação
+CMD ["node", "--inspect=0.0.0.0:9229", "dist/server.js"]

@@ -9,7 +9,6 @@ export class CarController {
   }
 
   async getCars(req: Request, res: Response) {
-    console.log("response")
     const cars = await this.carService.getCars();
     res.json(cars);
   }
