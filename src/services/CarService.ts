@@ -40,11 +40,12 @@ export class CarService {
     });
 
     const car = response.data;
+    let date = new Date();
     await sendToQueue({
       car_id: car.id, 
-      data_hora_criacao: new Date(), 
+      data_hora_criacao: date, 
     });
-
+    car["date"] = date;
     return car;
 
   }
