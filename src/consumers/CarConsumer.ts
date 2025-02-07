@@ -41,7 +41,11 @@ export class CarConsumer {
 
   private async sendWebhook(message: any) {
     try {
-      const webhookUrl = 'https://webhook.site/227c778a-b6a7-454e-94f0-48acf5745574'; 
+      const webhookUrl = process.env.WEBHOOK; 
+
+      if (!webhookUrl) {
+        throw new Error('WEBHOOK_URL não está definida no arquivo .env');
+      }
       await axios.post(webhookUrl, {
         car_id: message.car_id,
         message: 'Novo carro cadastrado',
