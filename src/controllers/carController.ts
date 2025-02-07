@@ -23,8 +23,14 @@ export class CarController {
   }
 
   async createCar(req: Request, res: Response) {
-    const token = req.headers.authorization as string;
-    const car = await this.carService.createCar(req.body, token);
-    res.status(201).json(car);
+    try {
+      const token = req.headers.authorization as string;
+      const car = await this.carService.createCar(req.body, token);
+      res.status(201).json(car);
+    } catch (error:any) {
+       res.status(500).json({ error: error.message });
+    }
+    
+    
   }
 }

@@ -35,8 +35,17 @@ export class CarService {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+
+
     });
 
-    return response.data;
+    const car = response.data;
+    await sendToQueue({
+      car_id: car.id, 
+      data_hora_criacao: new Date(), 
+    });
+
+    return car;
+
   }
 }

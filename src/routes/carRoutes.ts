@@ -6,7 +6,7 @@ const carController = new CarController();
 import { authMiddleware } from '../Middlewares/authMiddleware';
 
 router.get('/', authMiddleware, carController.getCars);
-router.post('/', carController.createCar);
+router.post('/', authMiddleware, carController.createCar);
 
 
 export { router as carRoutes };
