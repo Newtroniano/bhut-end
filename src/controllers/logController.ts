@@ -6,6 +6,7 @@ export class LogController {
 
   constructor() {
     this.logService = new LogService();
+    this.getLogs = this.getLogs.bind(this);
   }
 
   async getLogs(req: Request, res: Response) {

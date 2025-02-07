@@ -4,8 +4,8 @@ import { Log } from '../models/Log';
 import { sendToQueue } from '../config/queue';
 
 export class CarService {
-  private apiUrl = 'http://api-test.bhut.com.br:3000/api/v1/carro';
-  //private token: string | null = null; 
+  private apiUrl = `${process.env.BASEURL}carro`;
+  
 
 
   async getCars(token: string) {
@@ -13,12 +13,12 @@ export class CarService {
       throw new Error("Token não fornecido.");
     }
 
-    // Log para verificar o token que está sendo enviado
+    
     console.log('Token enviado para a API:', token);
 
     const response = await axios.get(this.apiUrl, {
       headers: {
-        Authorization: `Bearer ${token}`,  // Passa o token aqui
+        Authorization: `Bearer ${token}`,  
       },
     });
 
@@ -35,8 +35,17 @@ export class CarService {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+
+
     });
 
-    return response.data;
+    const car = response.data;
+    await sendToQueue({
+      car_id: car.id, 
+      data_hora_criacao: new Date(), 
+    });
+
+    return car;
+
   }
 }
