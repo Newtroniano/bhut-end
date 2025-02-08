@@ -17,7 +17,7 @@ export class CarConsumer {
       channel.consume(queueName, async (msg) => {
         if (msg !== null) {
           const message = JSON.parse(msg.content.toString()); 
-          console.log('Received message:', message);
+          //console.log('Received message:', message);
 
           try {
             
@@ -26,9 +26,9 @@ export class CarConsumer {
           
             await this.saveLog(message);
 
-            console.log('Message processed successfully');
+            //console.log('Message processed successfully');
           } catch (error) {
-            console.error('Error processing message:', error);
+            //console.error('Error processing message:', error);
           } finally {
             channel.ack(msg); 
           }
@@ -50,9 +50,9 @@ export class CarConsumer {
         car_id: message.car_id,
         message: 'Novo carro cadastrado',
       });
-      console.log('Webhook enviado com sucesso');
+      //console.log('Webhook enviado com sucesso');
     } catch (error) {
-      console.error('Erro ao enviar webhook:', error);
+      //console.error('Erro ao enviar webhook:', error);
     }
   }
 

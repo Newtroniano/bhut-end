@@ -17,7 +17,7 @@ export class CarController {
       const cars = await this.carService.getCars(token);       
       res.json(cars);
     } catch (error: any) {
-      console.error("Erro ao buscar carros:", error.message);
+      //console.error("Erro ao buscar carros:", error.message);
       res.status(500).json({ error: "Erro interno ao buscar carros" });
     }
   }

@@ -13,8 +13,8 @@ services:
     depends_on:
       - rabbitmq
       - mongo
-    entrypoint: ["sh", "-c", "sleep 10 && npm run build && npm start"]  # Compilar e iniciar o servidor
-
+    entrypoint: ["sh", "-c", "dockerize -wait tcp://rabbitmq:5672 -wait tcp://mongo:27017 -timeout 30s npm run build && npm start"]
+    
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq

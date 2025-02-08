@@ -12,7 +12,7 @@ export const sendToQueue = async (message: any) => {
     const channel = await connection.createChannel();
     await channel.assertQueue(queueName, { durable: false });
     channel.sendToQueue(queueName, Buffer.from(JSON.stringify(message)));
-    console.log(`Message sent to queue: ${JSON.stringify(message)}`);
+    //console.log(`Message sent to queue: ${JSON.stringify(message)}`);
 
     setTimeout(() => {
       connection.close();
@@ -33,7 +33,7 @@ export const consumeFromQueue = async () => {
     channel.consume(queueName, async (msg) => {
       if (msg !== null) {
         const message = JSON.parse(msg.content.toString());
-        console.log(`Received message: ${JSON.stringify(message)}`);
+        //console.log(`Received message: ${JSON.stringify(message)}`);
         channel.ack(msg);
       }
     });

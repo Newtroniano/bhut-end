@@ -4,9 +4,14 @@ FROM node:16
 # Defina o diretório de trabalho
 WORKDIR /app
 
+# Instala o dockerize
+RUN apt-get update && apt-get install -y wget && \
+    wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz && \
+    tar -xzvf dockerize-linux-amd64-v0.6.1.tar.gz && \
+    mv dockerize /usr/local/bin/
+
 # Copie o package.json e o package-lock.json para dentro do contêiner
 COPY package.json package-lock.json /app/
-
 
 
 # Instala as dependências
