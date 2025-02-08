@@ -1,8 +1,5 @@
 version: '3.8'
 
-networks:
-  bhut-network:  # Definição da rede
-
 services:
   app:
     build: .
@@ -17,8 +14,6 @@ services:
       - rabbitmq
       - mongo
     entrypoint: ["sh", "-c", "sleep 10 && npm start"]
-    networks:
-      - bhut-network  # Conectando à rede
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -26,8 +21,6 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-    networks:
-      - bhut-network  # Conectando à rede
 
   mongo:
     image: mongo:latest
@@ -36,8 +29,6 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
-    networks:
-      - bhut-network  # Conectando à rede
 
 volumes:
   mongo-data:
