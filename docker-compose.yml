@@ -13,7 +13,7 @@ services:
     depends_on:
       - rabbitmq
       - mongo
-    entrypoint: ["sh", "-c", "sleep 10 && npm start"]
+    entrypoint: ["sh", "-c", "sleep 10 && npm run build && npm start"]  # Compilar e iniciar o servidor
 
   rabbitmq:
     image: rabbitmq:3-management
