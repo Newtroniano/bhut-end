@@ -8,7 +8,7 @@ const queueName = 'car_queue';
 export class CarConsumer {
   async start() {
 
-    const connection = await amqp.connect(process.env.RABBITMQ_URL || 'amqp://rabbitmq');
+    const connection = await amqp.connect(process.env.RABBITMQ_URL || 'amqp://rabbitmq:5672');
     const channel = await connection.createChannel();
     await channel.assertQueue(queueName, { durable: false });
 
@@ -41,7 +41,7 @@ export class CarConsumer {
 
   private async sendWebhook(message: any) {
     try {
-      const webhookUrl = process.env.WEBHOOK; 
+      const webhookUrl ="https://webhook.site/227c778a-b6a7-454e-94f0-48acf5745574"; 
 
       if (!webhookUrl) {
         throw new Error('WEBHOOK_URL não está definida no arquivo .env');
