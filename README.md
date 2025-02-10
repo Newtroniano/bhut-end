@@ -23,7 +23,7 @@ Não é necessário instalar dependências manualmente. Basta instalar o **Docke
 #### Passo 1: Clone o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/bhut-backend.git
+git clone https://github.com/Newtroniano/bhut-end.git
 cd bhut-backend
 ```
 
