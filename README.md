@@ -74,10 +74,10 @@ Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/bhut
 RABBITMQ_URL=amqp://localhost:5672
-USUARIO=user
-SENHA=password
-WEBHOOK=http://localhost:4000/webhook
-BASEURL=https://api.carros.com/v1/
+USUARIO=user - Para fazer a  Autenticação e gerar token para o middleware
+SENHA=password - Para fazer a  Autenticação e gerar token para o middleware
+WEBHOOK=http://seu-endereço-webhook
+BASEURL=https://rota-api/api/v1/
 ```
 
 #### Passo 4: Inicie o MongoDB e o RabbitMQ
