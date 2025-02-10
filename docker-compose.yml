@@ -6,9 +6,7 @@ services:
     container_name: bhut-backend_app
     ports:
       - "3000:3000"  
-      - "9229:9229"  
-    env_file:
-      - .env  
+      - "9229:9229"   
     environment:
       - RABBITMQ_URL=amqp://rabbitmq:5672
       - MONGO_URI=mongodb://mongo:27017/bhut
