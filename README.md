@@ -48,7 +48,7 @@ docker-compose up --build
 #### Passo 4: Acesse a Aplicação
 
 - A aplicação estará rodando em: [http://localhost:3000](http://localhost:3000).
-- O RabbitMQ Management estará disponível em: [http://localhost:15672](http://localhost:15672) (usuário: `user`, senha: `password`).
+- O RabbitMQ Management estará disponível em: [http://localhost:15672](http://localhost:15672) (usuário: `guest`, senha: `guest`).
 - O MongoDB estará disponível em: `mongodb://localhost:27017/bhut`.
 
 ### 2. Rodando Localmente (Sem Docker)
