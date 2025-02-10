@@ -33,8 +33,8 @@ Se for usar Docker Compose, defina as variáveis de ambiente no arquivo docker-c
 
 ```
 environment:
-  - RABBITMQ_URL=amqp://rabbitmq:5672 #---- seu servidor RABBITMQ
-  - MONGO_URI=mongodb://mongo:27017/bhut #---- seu servidor MONGO DB
+  - RABBITMQ_URL=amqp://rabbitmq:5672 #---- seu servidor RABBITMQ ou mantenha setado o hostname padrão
+  - MONGO_URI=mongodb://mongo:27017/bhut #---- seu servidor MONGO DB ou mantenha setado o hostname padrão
 ```
 
 #### Passo 3: Suba os Containers
