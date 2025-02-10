@@ -1,10 +1,8 @@
-# 🚗 Bhut Backend - API de Gerenciamento de Carros
+# Bhut Backend - API de Gerenciamento de Carros
 
 Esta é uma aplicação backend desenvolvida em **Node.js** com **TypeScript** que gerencia carros, integra-se a uma API externa, utiliza **RabbitMQ** para mensageria e **MongoDB** para armazenamento de logs.
 
----
-
-## 📋 Requisitos
+## Requisitos
 
 - **Node.js** (v16 ou superior) (apenas para rodar localmente sem Docker)
 - **Docker** (para rodar com containers)
@@ -12,15 +10,11 @@ Esta é uma aplicação backend desenvolvida em **Node.js** com **TypeScript** q
 - **MongoDB** (opcional, se rodar localmente sem Docker)
 - **RabbitMQ** (opcional, se rodar localmente sem Docker)
 
----
-
-## 🚀 Como Rodar a Aplicação
+## Como Rodar a Aplicação
 
 Você pode rodar a aplicação de duas maneiras:
 1. **Usando Docker** (recomendado, não é necessário instalar dependências manualmente).
 2. **Localmente**, instalando as dependências manualmente.
-
----
 
 ### 1. Usando Docker (Recomendado)
 
@@ -33,18 +27,15 @@ git clone https://github.com/seu-usuario/bhut-backend.git
 cd bhut-backend
 ```
 
-#### Passo 2: Crie o Arquivo `.env`
+#### Passo 2:defina as variáveis no arquivo  `.yml`
 
-Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+Se for usar Docker Compose, defina as variáveis no arquivo .yml, na seção environment, assim:
 
 ```
-PORT=3000
-MONGO_URI=mongodb://mongo:27017/bhut
-RABBITMQ_URL=amqp://rabbitmq:5672
-USUARIO=user
-SENHA=password
-WEBHOOK=http://localhost:4000/webhook
-BASEURL=https://api.carros.com
+environment:
+  - RABBITMQ_URL=amqp://rabbitmq:5672
+  - MONGO_URI=mongodb://mongo:27017/bhut
+  - WEBHOOK=https://webhook.site/seu_web_hook
 ```
 
 #### Passo 3: Suba os Containers
@@ -60,8 +51,6 @@ docker-compose up --build
 - A aplicação estará rodando em: [http://localhost:3000](http://localhost:3000).
 - O RabbitMQ Management estará disponível em: [http://localhost:15672](http://localhost:15672) (usuário: `user`, senha: `password`).
 - O MongoDB estará disponível em: `mongodb://localhost:27017/bhut`.
-
----
 
 ### 2. Rodando Localmente (Sem Docker)
 
@@ -106,9 +95,7 @@ npm start
 
 A aplicação estará rodando em: [http://localhost:3000](http://localhost:3000).
 
----
-
-## 🛠️ Endpoints da API
+## Endpoints da API
 
 ### 1. **GET /api/car**
 **Descrição**: Retorna a lista de carros da API externa.
@@ -123,9 +110,7 @@ curl -X GET http://localhost:3000/api/car
 
 **Exemplo de Requisição:**
 ```bash
-curl -X POST http://localhost:3000/api/car \
-  -H "Content-Type: application/json" \
-  -d '{
+curl -X POST http://localhost:3000/api/car   -H "Content-Type: application/json"   -d '{
     "marca": "Fiat",
     "modelo": "Uno",
     "ano": 2020,
@@ -141,9 +126,7 @@ curl -X POST http://localhost:3000/api/car \
 curl -X GET http://localhost:3000/api/logs
 ```
 
----
-
-## 🐳 Estrutura do Docker Compose
+## Estrutura do Docker Compose
 
 O arquivo `docker-compose.yml` define três serviços:
 
@@ -151,9 +134,7 @@ O arquivo `docker-compose.yml` define três serviços:
 - **rabbitmq**: Serviço RabbitMQ para mensageria.
 - **mongo**: Banco de dados MongoDB para armazenar logs.
 
----
-
-## 🧠 Como Funciona?
+## Como Funciona?
 
 ### **POST /api/car:**
 
@@ -168,9 +149,7 @@ O arquivo `docker-compose.yml` define três serviços:
 
 - Retorna todos os logs salvos no MongoDB.
 
----
-
-## 🐛 Debugando a Aplicação
+## Debugando a Aplicação
 
 ### **Com Docker**
 
@@ -187,10 +166,8 @@ npm run dev
 
 - Use o **VSCode** ou **Chrome DevTools** para depurar.
 
----
-
-## 📜 Conclusão
+## Conclusão
 
 Este projeto foi estruturado para facilitar o gerenciamento de carros com uma arquitetura moderna utilizando Node.js, TypeScript, Docker, RabbitMQ e MongoDB. Caso tenha dúvidas, consulte a documentação ou entre em contato!
 
-🚀 **Bom desenvolvimento!**
+Bom desenvolvimento!

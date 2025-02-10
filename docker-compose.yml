@@ -12,7 +12,8 @@ services:
     environment:
       - RABBITMQ_URL=amqp://rabbitmq:5672
       - MONGO_URI=mongodb://mongo:27017/bhut
-      - WEBHOOK=${WEBHOOK}
+      - WEBHOOK=https://webhook.site/seu_web_hook
+      - BASEURL=https://sua_api.exemplo.com
     depends_on:
       - rabbitmq
       - mongo
