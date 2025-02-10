@@ -44,7 +44,7 @@ No terminal na raiz do projeto digite o comando
 ```bash
 docker-compose up --build
 ```
-"Certifique-se de que o arquivo .env foi criado, o Docker está instalado e as variáveis estão definidas. Caso contrário, o comando resultará em erro. Exemplo:"
+Certifique-se de que o arquivo .env foi criado, o Docker está instalado e as variáveis estão definidas. Caso contrário, o comando resultará em erro. Exemplo .env:
 ```
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/bhut
