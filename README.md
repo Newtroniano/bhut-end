@@ -68,7 +68,7 @@ docker-compose up --build
 #### Passo 1: Clone o Repositório
 
 ```bash
-git clone https://github.com/Newtroniano/bhut-end-api.git
+git clone https://github.com/Newtroniano/bhut-end.git
 cd bhut-backend
 ```
 
