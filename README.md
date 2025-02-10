@@ -33,9 +33,10 @@ Se for usar Docker Compose, defina as variáveis no arquivo .yml, na seção env
 
 ```
 environment:
-  - RABBITMQ_URL=amqp://rabbitmq:5672
-  - MONGO_URI=mongodb://mongo:27017/bhut
-  - WEBHOOK=https://webhook.site/seu_web_hook
+  - RABBITMQ_URL=amqp://rabbitmq:5672 #---- seu servidor RABBITMQ 
+  - MONGO_URI=mongodb://mongo:27017/bhut #---- seu servidor MONGO DB
+  - WEBHOOK=https://webhook.site/seu_web_hook #---- seu webhook
+  - BASEURL=http://sua_url_api_exemplo:300 # ------ sua base url 
 ```
 
 #### Passo 3: Suba os Containers
