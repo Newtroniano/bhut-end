@@ -77,7 +77,7 @@ RABBITMQ_URL=amqp://localhost:5672
 USUARIO=user
 SENHA=password
 WEBHOOK=http://localhost:4000/webhook
-BASEURL=https://api.carros.com
+BASEURL=https://api.carros.com/v1/
 ```
 
 #### Passo 4: Inicie o MongoDB e o RabbitMQ
