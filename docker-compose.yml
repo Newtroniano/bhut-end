@@ -7,13 +7,15 @@ services:
     ports:
       - "3000:3000"  
       - "9229:9229"   
+    env_file:
+      - .env
     environment:
       - RABBITMQ_URL=amqp://rabbitmq:5672
       - MONGO_URI=mongodb://mongo:27017/bhut
-      - WEBHOOK=https://webhook.site/seu_web_hook
-      - BASEURL=https://sua_api.exemplo.com
-      - USUARIO=seu_usuario
-      - SENHA=sua_senha
+      - WEBHOOK=${WEBHOOK} 
+      - BASEURL=${BASEURL} 
+      - USUARIO=${USUARIO} 
+      - SENHA=${SENHA}
     depends_on:
       - rabbitmq
       - mongo
