@@ -44,7 +44,16 @@ No terminal na raiz do projeto digite o comando
 ```bash
 docker-compose up --build
 ```
-"Certifique-se de que o arquivo .env foi criado, o Docker está instalado e as variáveis estão definidas. Caso contrário, o comando resultará em erro."
+"Certifique-se de que o arquivo .env foi criado, o Docker está instalado e as variáveis estão definidas. Caso contrário, o comando resultará em erro. Exemplo:"
+```
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/bhut
+RABBITMQ_URL=amqp://localhost:5672
+USUARIO=user - Para fazer a  Autenticação e gerar token para o middleware
+SENHA=password - Para fazer a  Autenticação e gerar token para o middleware
+WEBHOOK=http://seu-endereço-webhook
+BASEURL=https://rota-api/api/v1/
+```
 
 #### Passo 4: Acesse a Aplicação
 
