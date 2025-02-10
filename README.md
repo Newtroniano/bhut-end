@@ -29,14 +29,12 @@ cd bhut-backend
 
 #### Passo 2:defina as variáveis no arquivo  `.yml`
 
-Se for usar Docker Compose, defina as variáveis no arquivo .yml, na seção environment, assim:
+Se for usar Docker Compose, defina as variáveis de ambiente no arquivo docker-compose.yml apenas para os endereços do RABBITMQ_URL e MONGO_URI, pois, dentro do Docker, o endereço desses serviços será diferente. Por padrão, o Docker configura esses servidores com nomes específicos de serviço. As demais variáveis podem ser lidas diretamente do arquivo .env
 
 ```
 environment:
-  - RABBITMQ_URL=amqp://rabbitmq:5672 #---- seu servidor RABBITMQ 
+  - RABBITMQ_URL=amqp://rabbitmq:5672 #---- seu servidor RABBITMQ
   - MONGO_URI=mongodb://mongo:27017/bhut #---- seu servidor MONGO DB
-  - WEBHOOK=https://webhook.site/seu_web_hook #---- seu webhook
-  - BASEURL=http://sua_url_api_exemplo:300 # ------ sua base url 
 ```
 
 #### Passo 3: Suba os Containers
