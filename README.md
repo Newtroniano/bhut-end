@@ -40,10 +40,11 @@ environment:
 #### Passo 3: Suba os Containers
 
 Use o Docker Compose para subir todos os serviços (**Node.js**, **MongoDB** e **RabbitMQ**):
-
+No terminal na raiz do projeto digite o comando 
 ```bash
 docker-compose up --build
 ```
+"Certifique-se de que o arquivo .env foi criado, o Docker está instalado e as variáveis estão definidas. Caso contrário, o comando resultará em erro."
 
 #### Passo 4: Acesse a Aplicação
 
