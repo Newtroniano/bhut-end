@@ -89,7 +89,7 @@ BASEURL=https://api.carros.com
 
 ```bash
 npm run build
-npm start
+npm start ou npx ts-node src/server.ts 
 ```
 
 A aplicação estará rodando em: [http://localhost:3000](http://localhost:3000).
