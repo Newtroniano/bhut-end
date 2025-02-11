@@ -47,12 +47,12 @@ docker-compose up --build
 Certifique-se de que o arquivo .env foi criado, o Docker está instalado e as variáveis estão definidas. Caso contrário, o comando resultará em erro. Exemplo .env:
 ```
 PORT=3000
-MONGO_URI=mongodb://localhost:27017/bhut
+MONGO_URI=mongodb://localhost:27017
 RABBITMQ_URL=amqp://localhost:5672
-USUARIO=user - Para fazer a  Autenticação e gerar token para o middleware
-SENHA=password - Para fazer a  Autenticação e gerar token para o middleware
-WEBHOOK=http://seu-endereço-webhook
-BASEURL=https://rota-api/api/v1/
+USUARIO=luis.fidelis
+SENHA=0c314c07-97a3-46d9-978d-244c99ad1e33
+WEBHOOK=https://webhook.site/227c778a-b6a7-454e-94f0-48acf5745574
+BASEURL=http://api-test.bhut.com.br:3000/api/v1/
 ```
 
 #### Passo 4: Acesse a Aplicação
