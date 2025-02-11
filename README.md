@@ -30,7 +30,7 @@ cd bhut-backend
 #### Passo 2:defina as variáveis no arquivo  `.yml`
 
 **Existe um arquivo `.env` pronto no projeto para uso. Você pode alterá-lo ou criar um novo.**  
-**Caro, se quiser usar o `.env` do projeto, basta pular a etapa de configuração de variáveis.**  
+**Se quiser usar o `.env` do projeto, basta pular a etapa de configuração de variáveis.**  
 **Se quiser manter os endereços do MongoDB e RABBITMQ URL  como locais, basta pular essa etapa.**
 
 
@@ -84,7 +84,7 @@ npm install
 #### Passo 3: Configure o Ambiente
 
 **Existe um arquivo `.env` pronto no projeto para uso. Você pode alterá-lo ou criar um novo.**  
-**Caro, se quiser usar o `.env` do projeto, basta pular a etapa de configuração de variáveis.**
+**Se quiser usar o `.env` do projeto, basta pular a etapa de configuração de variáveis.**
 
 
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
