@@ -29,6 +29,11 @@ cd bhut-backend
 
 #### Passo 2:defina as variáveis no arquivo  `.yml`
 
+**Existe um arquivo `.env` pronto no projeto para uso. Você pode alterá-lo ou criar um novo.**  
+**Caro, se quiser usar o `.env` do projeto, basta pular a etapa de configuração de variáveis.**  
+**Se quiser manter os endereços do MongoDB e RABBITMQ URL  como locais, basta pular essa etapa.**
+
+
 Se for usar Docker Compose, defina as variáveis de ambiente no arquivo docker-compose.yml apenas para os endereços do RABBITMQ_URL e MONGO_URI, pois, dentro do Docker, o endereço desses serviços será diferente. Por padrão, o Docker configura esses servidores com nomes específicos de serviço. As demais variáveis podem ser lidas diretamente do arquivo .env
 
 ```
